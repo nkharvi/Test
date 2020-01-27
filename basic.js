@@ -20,9 +20,10 @@ var promiseSkip = !hasPromise && 'no global Promise'
 function reset () {
   delete require.cache[require.resolve('../')]
   return require('../')
-}
+}//namitha
 
-t.test('setup fixtures', function (t) {
+
+
   rimraf.sync(fixture)
   mkdirp.sync(fixture)
   fs.writeFileSync(meow, '#!/usr/bin/env cat\nmeow\n')
