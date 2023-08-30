@@ -1,0 +1,34 @@
+Sure, here are the steps to upload your Selenium automation script to your AWS EC2 instance:
+
+1. **Prepare the Script and Files**: Make sure you have your Selenium automation script and any necessary files ready on your local machine.
+
+2. **Open Terminal or Command Prompt**: On your local machine, open a terminal (for macOS and Linux) or Command Prompt (for Windows).
+
+3. **Use SCP Command (Secure Copy)**: Use the `scp` command to securely copy your files to the EC2 instance. The basic syntax is:
+  
+  ```sh
+  scp -i /path/to/your/key.pem /path/to/local/script/file username@ec2-instance-ip:/path/on/ec2
+  ```
+  
+  Replace:
+  - `/path/to/your/key.pem` with the path to your EC2 key pair file (.pem).
+  - `/path/to/local/script/file` with the path to your local Selenium script.
+  - `username` with the username used to connect to the EC2 instance (e.g., "ec2-user").
+  - `ec2-instance-ip` with the public IP address of your EC2 instance.
+  - `/path/on/ec2` with the destination path on the EC2 instance where you want to store the script.
+
+4. **Enter SSH Key Password**: If your key pair has a password, you'll be prompted to enter it.
+
+5. **Confirm Upload**: The file(s) should be copied to your EC2 instance. You'll see progress information in the terminal.
+
+6. **Access EC2 Instance**: Connect to your EC2 instance using SSH. Open a terminal and use the `ssh` command:
+  
+  ```sh
+  ssh -i /path/to/your/key.pem username@ec2-instance-ip
+  ```
+
+7. **Navigate to Uploaded Files**: Once connected to the EC2 instance, navigate to the directory where you uploaded your script using the `cd` command.
+
+8. **Run the Script**: Depending on the script and its requirements, execute the script using the appropriate command. You might need to use `nohup` to run it in the background.
+
+Remember to replace the placeholders in the commands with your actual file paths, usernames, IP addresses, and other information. This process securely transfers your script to the EC2 instance, allowing you to run your Selenium automation in the AWS environment.
